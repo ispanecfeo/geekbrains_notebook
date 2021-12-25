@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">notebook</string>
+    <string name="title_create_menu">Create</string>
+</resources>
