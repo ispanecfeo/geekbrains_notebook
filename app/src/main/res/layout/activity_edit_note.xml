@@ -10,14 +10,14 @@
         android:layout_height="wrap_content"
         android:id="@+id/edit_note_title"
         tools:text="Title"
-        android:textSize="24sp"
+        android:textSize="@dimen/edit_note_title_text_size"
         />
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:lines="5"
-        android:textSize="20sp"
+        android:textSize="@dimen/edit_note_description_text_size"
         tools:text="Description"
         android:id="@+id/edit_note_description"/>
 

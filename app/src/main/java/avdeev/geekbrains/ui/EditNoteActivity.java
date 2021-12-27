@@ -1,16 +1,21 @@
 package avdeev.geekbrains.ui;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
 
+import androidx.activity.result.ActivityResultLauncher;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import avdeev.geekbrains.R;
 import avdeev.geekbrains.data.Constants;
+import avdeev.geekbrains.data.InMemoryRepoImpl;
 import avdeev.geekbrains.data.Note;
+import avdeev.geekbrains.data.Repo;
+import avdeev.geekbrains.recycler.NotesAdapter;
 
 public class EditNoteActivity extends AppCompatActivity {
 
@@ -18,6 +23,8 @@ public class EditNoteActivity extends AppCompatActivity {
     private EditText description;
     private Button saveNote;
     private int id = -1;
+    private Note note;
+    private String mode;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -31,11 +38,37 @@ public class EditNoteActivity extends AppCompatActivity {
         Intent intent = getIntent();
         if(intent != null)
         {
-            Note note = (Note) intent.getSerializableExtra(Constants.NOTE);
-            id = note.getId();
-            title.setText(note.getTitle());
-            description.setText(note.getDescription());
+            this.mode = intent.getStringExtra(Constants.MODE);
+
+            if (this.mode.equals(Constants.UPDATE)) {
+
+                this.note = (Note) intent.getSerializableExtra(Constants.NOTE);
+                id = this.note.getId();
+                title.setText(note.getTitle());
+                description.setText(note.getDescription());
+            }
+
         }
+
+        saveNote.setOnClickListener(v -> {
+
+            Repo repo = InMemoryRepoImpl.getInstance();
+
+            if (this.mode.equals(Constants.UPDATE)) {
+                this.note.setTitle(this.title.getText().toString());
+                this.note.setDescription(this.description.getText().toString());
+                repo.update(this.note);
+            } else if (this.mode.equals(Constants.ADD)) {
+                repo.create(
+                        new Note(
+                             this.title.getText().toString(),
+                             this.description.getText().toString()
+                        )
+                );
+            }
+            setResult(Activity.RESULT_OK);
+            finish();
+        });
 
     }
 }
