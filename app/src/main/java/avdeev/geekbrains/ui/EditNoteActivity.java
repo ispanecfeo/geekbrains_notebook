@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
 
-import androidx.activity.result.ActivityResultLauncher;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -15,7 +14,6 @@ import avdeev.geekbrains.data.Constants;
 import avdeev.geekbrains.data.InMemoryRepoImpl;
 import avdeev.geekbrains.data.Note;
 import avdeev.geekbrains.data.Repo;
-import avdeev.geekbrains.recycler.NotesAdapter;
 
 public class EditNoteActivity extends AppCompatActivity {
 
@@ -29,7 +27,7 @@ public class EditNoteActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_edit_note);
+        setContentView(R.layout.fragment_edit_note);
 
         title = findViewById(R.id.edit_note_title);
         description = findViewById(R.id.edit_note_description);

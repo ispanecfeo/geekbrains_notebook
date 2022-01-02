@@ -1,6 +1,5 @@
 package avdeev.geekbrains.recycler;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,7 +8,6 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -54,7 +52,7 @@ public class NotesAdapter extends RecyclerView.Adapter<NoteHolder> {
         LayoutInflater inflater = LayoutInflater.from(context);
 
         View view = inflater.inflate(
-                R.layout.note_item,
+                R.layout.fragment_note_item,
                 parent,
                 false
         );

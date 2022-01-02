@@ -7,4 +7,6 @@
     <dimen name="note_item_description_text_size">20sp</dimen>
     <dimen name="edit_note_title_text_size">24sp</dimen>s
     <dimen name="edit_note_description_text_size">20sp</dimen>
+    <dimen name="value_zero">0px</dimen>
+    <dimen name="row_count">6</dimen>
 </resources>

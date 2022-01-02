@@ -16,7 +16,7 @@
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:lines="5"
+        android:lines="7"
         android:textSize="@dimen/edit_note_description_text_size"
         tools:text="Description"
         android:id="@+id/edit_note_description"/>
@@ -24,7 +24,7 @@
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Update note"
+        android:text="@string/update_note"
         android:id="@+id/edit_note_update"/>
 
 </LinearLayout>

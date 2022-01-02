@@ -5,9 +5,17 @@
       <map>
         <entry key="../../../../../layout/custom_preview.xml" value="0.2928205128205128" />
         <entry key="app/src/main/res/drawable-v24/ic_baseline_add_24.xml" value="0.2984375" />
+        <entry key="app/src/main/res/layout-land/actitvity_notes_main.xml" value="0.20572916666666666" />
+        <entry key="app/src/main/res/layout/actitvity_main_activity.xml" value="0.18885869565217392" />
+        <entry key="app/src/main/res/layout/actitvity_notes_main.xml" value="0.18885869565217392" />
         <entry key="app/src/main/res/layout/activity_edit_note.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.1503623188405797" />
         <entry key="app/src/main/res/layout/activity_notes_list.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/fragment_activity_main.xml" value="0.18885869565217392" />
+        <entry key="app/src/main/res/layout/fragment_edit_note.xml" value="0.12745098039215685" />
+        <entry key="app/src/main/res/layout/fragment_note_item.xml" value="0.18885869565217392" />
+        <entry key="app/src/main/res/layout/fragment_notes.xml" value="0.12745098039215685" />
+        <entry key="app/src/main/res/layout/fragment_notes_list.xml" value="0.18885869565217392" />
         <entry key="app/src/main/res/layout/note_item.xml" value="0.1" />
         <entry key="app/src/main/res/layout/old_note_item.xml" value="0.11296296296296296" />
         <entry key="app/src/main/res/menu/main.xml" value="0.27794871794871795" />
