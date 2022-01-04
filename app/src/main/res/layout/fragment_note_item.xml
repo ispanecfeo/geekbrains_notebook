@@ -27,6 +27,20 @@
             android:textSize="@dimen/note_item_title_text_size"
             tools:text="Title" />
 
+        <TextView
+            android:id="@+id/note_date_parent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/note_item_description_text_size"
+            tools:text="date" />
+
+        <TextView
+            android:id="@+id/note_level"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/note_item_description_text_size"
+            tools:text="level" />
+
 
         <TextView
             android:id="@+id/note_description"
