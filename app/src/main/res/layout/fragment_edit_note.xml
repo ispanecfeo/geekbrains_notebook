@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+
+    <TextView
+        android:id="@+id/label_for_spinner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/choose_importance"
+        android:textSize="@dimen/edit_note_title_text_size" />
+
+    <Space
+        android:layout_width="@dimen/space_width"
+        android:layout_height="@dimen/space_width"
+        android:layout_weight="@dimen/zero_weight" />
+
+
+    <Spinner
+        android:id="@+id/spinner"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/spinner_height"
+        android:layout_marginBottom="@dimen/margin_bottom_value"
+        android:entries="@array/importance"
+        android:popupBackground="@color/purple_200"
+        android:textSize="@dimen/edit_note_title_text_size" />
+
+
+    <EditText
+        android:id="@+id/edit_note_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/edit_note_title_text_size"
+        tools:text="Title" />
+
+    <EditText
+        android:id="@+id/edit_note_description"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:lines="4"
+        android:textSize="@dimen/edit_note_description_text_size"
+        tools:text="Description" />
+
+    <EditText
+        android:id="@+id/note_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:ems="10"
+        android:hint="@string/enter_date" />
+
+
+    <Button
+        android:id="@+id/edit_note_update"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="10dp"
+        android:text="@string/update_note" />
+
+</LinearLayout>

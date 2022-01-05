@@ -5,6 +5,15 @@
     <dimen name="card_view_elevation">20dp</dimen>
     <dimen name="note_item_title_text_size">24sp</dimen>
     <dimen name="note_item_description_text_size">20sp</dimen>
-    <dimen name="edit_note_title_text_size">24sp</dimen>s
+    <dimen name="edit_note_title_text_size">18sp</dimen>s
     <dimen name="edit_note_description_text_size">20sp</dimen>
+    <dimen name="value_zero">0px</dimen>
+    <dimen name="row_count">6</dimen>
+    <dimen name="zero_weight">0</dimen>
+    <dimen name="one_weight">1</dimen>
+    <dimen name="margin_bottom_value">10dp</dimen>
+    <dimen name="space_width">10dp</dimen>
+    <dimen name="spinner_padding">10dp</dimen>
+    <dimen name="spinner_height">40dp</dimen>
+
 </resources>

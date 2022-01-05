@@ -1,4 +1,18 @@
 <resources>
     <string name="app_name">notebook</string>
     <string name="title_create_menu">Create</string>
+
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="update_note">Update note</string>
+    <string name="spinner_title">Choose importance</string>
+    <string name="choose_importance">Choose importance:</string>
+    <string name="enter_date">Enter Date</string>
+
+    <string-array name="importance">
+        <item>important</item>
+        <item>average importance</item>
+        <item>usual</item>
+        <item>low importance</item>
+    </string-array>
+
 </resources>
