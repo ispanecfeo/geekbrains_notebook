@@ -13,10 +13,13 @@ import java.util.List;
 
 import avdeev.geekbrains.R;
 import avdeev.geekbrains.data.Note;
+import avdeev.geekbrains.data.PopupMenuItemClickListener;
 
-public class NotesAdapter extends RecyclerView.Adapter<NoteHolder> {
+public class NotesAdapter extends RecyclerView.Adapter<NoteHolder>
+{
 
     private List<Note> notes = new ArrayList<>();
+    private PopupMenuItemClickListener popupMenuItemClickListener;
 
     public void setNotes(List<Note> notes){
 
@@ -39,6 +42,10 @@ public class NotesAdapter extends RecyclerView.Adapter<NoteHolder> {
         this.listener = listener;
     }
 
+    public void setPopupMenuItemClickListener(PopupMenuItemClickListener listener) {
+        this.popupMenuItemClickListener = listener;
+    }
+
 
     @NonNull
     @Override
@@ -53,7 +60,7 @@ public class NotesAdapter extends RecyclerView.Adapter<NoteHolder> {
                 false
         );
 
-        return new NoteHolder(view, listener);
+        return new NoteHolder(view, listener, this.popupMenuItemClickListener);
     }
 
     @Override
@@ -66,5 +73,10 @@ public class NotesAdapter extends RecyclerView.Adapter<NoteHolder> {
     @Override
     public int getItemCount() {
         return notes.size();
+    }
+
+    public void delete(List<Note> all, int position) {
+        this.notes = all;
+        notifyItemRemoved(position);
     }
 }

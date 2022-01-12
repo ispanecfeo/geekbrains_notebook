@@ -59,6 +59,11 @@ public class InMemoryRepoImpl implements Repo {
     }
 
     @Override
+    public void delete(Note note) {
+        delete(note.getId());
+    }
+
+    @Override
     public void delete(int id) {
         for(int i = 0; i < notes.size(); i++)
         {
