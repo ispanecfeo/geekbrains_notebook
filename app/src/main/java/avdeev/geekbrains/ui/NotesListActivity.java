@@ -9,7 +9,10 @@ import android.os.Bundle;
 import avdeev.geekbrains.R;
 import avdeev.geekbrains.data.Note;
 
-public class NotesListActivity extends AppCompatActivity implements NotesListFragment.NotesListFragmentListener {
+public class NotesListActivity extends AppCompatActivity
+        implements NotesListFragment.NotesListFragmentListener,
+        YesNoDialogFragment.ClosingDialogListner
+{
 
     private NotesListFragment notesListFragment;
     private Note note = null;
@@ -92,5 +95,20 @@ public class NotesListActivity extends AppCompatActivity implements NotesListFra
             outState.putSerializable(CURRENT_NOTE, this.note);
         }
         super.onSaveInstanceState(outState);
+    }
+
+    @Override
+    public void onBackPressed() {
+        if (getSupportFragmentManager().getFragments().size() == 1 && getSupportFragmentManager().getFragments().get(0) instanceof NotesListFragment) {
+
+            new YesNoDialogFragment().show(getSupportFragmentManager(), null);
+        } else {
+            super.onBackPressed();
+        }
+    }
+
+    @Override
+    public void Close() {
+        finish();
     }
 }
