@@ -11,21 +11,29 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.DividerItemDecoration;
+import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import avdeev.geekbrains.R;
 import avdeev.geekbrains.data.InMemoryRepoImpl;
 import avdeev.geekbrains.data.Note;
+import avdeev.geekbrains.data.PopupMenuItemClickListener;
 import avdeev.geekbrains.data.Repo;
+import avdeev.geekbrains.recycler.NoteHolder;
 import avdeev.geekbrains.recycler.NotesAdapter;
 
-public class NotesListFragment extends Fragment {
+public class NotesListFragment
+        extends Fragment
+        implements PopupMenuItemClickListener
+{
 
     private static final String FLAG = "FLAG";
     private NotesAdapter adapter;
@@ -72,6 +80,25 @@ public class NotesListFragment extends Fragment {
         return inflater.inflate(R.layout.fragment_notes, container, false);
     }
 
+    @Override
+    public void click(int command, Note note, int position) {
+        switch (command)
+        {
+            case R.id.context_delete:
+                reposytory.delete(note);
+                adapter.delete(reposytory.getAll(), position);
+                return;
+
+            case R.id.context_modify:
+
+                if (this.listner != null) {
+                    this.note = note;
+                    this.listner.recyclerViewNoteOnClick(note);
+                }
+
+        }
+    }
+
     interface NotesListFragmentListener {
         void recyclerViewNoteOnClick(Note note);
     }
@@ -93,9 +120,38 @@ public class NotesListFragment extends Fragment {
 
         adapter = new NotesAdapter();
         adapter.setNotes(reposytory.getAll());
+        adapter.setPopupMenuItemClickListener(this);
+
         list = view.findViewById(R.id.list);
         list.setLayoutManager(new LinearLayoutManager(requireContext()));
         list.setAdapter(adapter);
+        list.addItemDecoration(new DividerItemDecoration(requireContext(), LinearLayout.VERTICAL));
+
+        ItemTouchHelper helper = new ItemTouchHelper(new ItemTouchHelper.Callback() {
+            @Override
+            public int getMovementFlags(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder) {
+                int swipeFlags = ItemTouchHelper.START | ItemTouchHelper.END;
+                return makeMovementFlags(0, swipeFlags);
+            }
+
+            @Override
+            public boolean onMove(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, @NonNull RecyclerView.ViewHolder target) {
+                return false;
+            }
+
+            @Override
+            public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
+                int position = viewHolder.getAdapterPosition();
+                NoteHolder holder = (NoteHolder) viewHolder;
+                Note note = holder.getNote();
+                reposytory.delete(note);
+                adapter.delete(reposytory.getAll(), position);
+            }
+        });
+        helper.attachToRecyclerView(list);
+
+
+
 
         adapter.setOnNoteClickListener(note -> {
             if (this.listner != null) {

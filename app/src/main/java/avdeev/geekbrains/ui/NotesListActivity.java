@@ -13,7 +13,7 @@ public class NotesListActivity extends AppCompatActivity implements NotesListFra
 
     private NotesListFragment notesListFragment;
     private Note note = null;
-    public static final String CURRENT_NOUT = "CURRENT_NOTE";
+    public static final String CURRENT_NOTE = "CURRENT_NOTE";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,8 +21,8 @@ public class NotesListActivity extends AppCompatActivity implements NotesListFra
         super.onCreate(savedInstanceState);
         setContentView(R.layout.actitvity_notes_main);
 
-        if (savedInstanceState != null && savedInstanceState.containsKey(CURRENT_NOUT)) {
-            this.note = (Note) savedInstanceState.getSerializable(CURRENT_NOUT);
+        if (savedInstanceState != null && savedInstanceState.containsKey(CURRENT_NOTE)) {
+            this.note = (Note) savedInstanceState.getSerializable(CURRENT_NOTE);
         }
 
         if (savedInstanceState == null)
@@ -89,7 +89,7 @@ public class NotesListActivity extends AppCompatActivity implements NotesListFra
     @Override
     protected void onSaveInstanceState(@NonNull Bundle outState) {
         if (this.note != null) {
-            outState.putSerializable(CURRENT_NOUT, this.note);
+            outState.putSerializable(CURRENT_NOTE, this.note);
         }
         super.onSaveInstanceState(outState);
     }

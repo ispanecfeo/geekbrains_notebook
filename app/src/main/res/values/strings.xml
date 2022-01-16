@@ -7,6 +7,8 @@
     <string name="spinner_title">Choose importance</string>
     <string name="choose_importance">Choose importance:</string>
     <string name="enter_date">Enter Date</string>
+    <string name="delete_title">Delete</string>
+    <string name="modify_title">Modify</string>
 
     <string-array name="importance">
         <item>important</item>
