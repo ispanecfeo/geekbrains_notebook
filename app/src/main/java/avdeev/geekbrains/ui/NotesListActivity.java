@@ -99,8 +99,13 @@ public class NotesListActivity extends AppCompatActivity
 
     @Override
     public void onBackPressed() {
-        if (getSupportFragmentManager().getFragments().size() == 1 && getSupportFragmentManager().getFragments().get(0) instanceof NotesListFragment) {
 
+        if (isLandscape()) {
+            new YesNoDialogFragment().show(getSupportFragmentManager(), null);
+            return;
+        }
+
+        if (getSupportFragmentManager().getFragments().size() == 1 && getSupportFragmentManager().getFragments().get(0) instanceof NotesListFragment) {
             new YesNoDialogFragment().show(getSupportFragmentManager(), null);
         } else {
             super.onBackPressed();
