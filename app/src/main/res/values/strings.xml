@@ -9,6 +9,14 @@
     <string name="enter_date">Enter Date</string>
     <string name="delete_title">Delete</string>
     <string name="modify_title">Modify</string>
+    <string name="title_about">About</string>
+    <string name="title_main">Main</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="nav_header_title">Geek Brains Note</string>
+    <string name="nav_header_subtitle">support@geekbrains.ru</string>
+    <string name="navigation_drawer_open">open</string>
+    <string name="navigation_drawer_close">close</string>
+    <string name="geek_brains_educational_portal">Geek Brains - educational portal</string>
 
     <string-array name="importance">
         <item>important</item>
