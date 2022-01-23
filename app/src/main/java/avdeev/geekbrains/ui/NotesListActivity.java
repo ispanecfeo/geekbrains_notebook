@@ -18,6 +18,7 @@ import android.view.MenuItem;
 import com.google.android.material.navigation.NavigationView;
 
 import avdeev.geekbrains.R;
+import avdeev.geekbrains.data.InMemoryRepoImpl;
 import avdeev.geekbrains.data.Note;
 
 public class NotesListActivity extends AppCompatActivity
@@ -166,5 +167,11 @@ public class NotesListActivity extends AppCompatActivity
 
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    @Override
+    protected void onDestroy() {
+        InMemoryRepoImpl.getInstance().save();
+        super.onDestroy();
     }
 }
