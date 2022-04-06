@@ -110,7 +110,7 @@ public class NotesListFragment
 
         Bundle args = getArguments();
         if (args != null && args.containsKey(FLAG) && !args.getBoolean(FLAG)) {
-            reposytory.fillRepo();
+            reposytory.fillRepo(requireContext());
             args.putBoolean(FLAG, true);
         }
 
